@@ -1,27 +1,20 @@
 package pro22;
 public class App {
     public static void main(String[] args) {
-        int row = 2, column = 3;
-        int[][] matrix = { {2, 3, 4}, {5, 6, 4} };
-        // Display current matrix
-        display(matrix);
-        // Transpose the matrix
-        int[][] transpose = new int[column][row];
-        for(int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                transpose[j][i] = matrix[i][j];
+        String[] words = { "Ruby", "C", "Python", "Java" };
+        for(int i = 0; i < 3; ++i) {
+            for (int j = i + 1; j < 4; ++j) {
+                if (words[i].compareTo(words[j]) > 0) {
+                    // swap words[i] with words[j[
+                    String temp = words[i];
+                    words[i] = words[j];
+                    words[j] = temp;
+                }
             }
         }
-        // Display transposed matrix
-        display(transpose);
-    }
-    public static void display(int[][] matrix) {
-        System.out.println("The matrix is: ");
-        for(int[] row : matrix) {
-            for (int column : row) {
-                System.out.print(column + "    ");
-            }
-            System.out.println();
+        System.out.println("In lexicographical order:");
+        for(int i = 0; i < 4; i++) {
+            System.out.println(words[i]);
         }
     }
 }
