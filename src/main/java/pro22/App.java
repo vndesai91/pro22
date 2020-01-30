@@ -1,29 +1,23 @@
 package pro22;
 public class App {
     public static void main(String[] args) {
-        int r1 = 2, c1 = 3;
-        int r2 = 3, c2 = 2;
-        int[][] firstMatrix = { {3, -2, 5}, {3, 0, 4} };
-        int[][] secondMatrix = { {2, 3}, {-9, 0}, {0, 4} };
-        // Mutliplying Two matrices
-        int[][] product = multiplyMatrices(firstMatrix, secondMatrix, r1, c1, c2);
-        // Displaying the result
-        displayProduct(product);
-    }
-    public static int[][] multiplyMatrices(int[][] firstMatrix, int[][] secondMatrix, int r1, int c1, int c2) {
-        int[][] product = new int[r1][c2];
-        for(int i = 0; i < r1; i++) {
-            for (int j = 0; j < c2; j++) {
-                for (int k = 0; k < c1; k++) {
-                    product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
-                }
+        int row = 2, column = 3;
+        int[][] matrix = { {2, 3, 4}, {5, 6, 4} };
+        // Display current matrix
+        display(matrix);
+        // Transpose the matrix
+        int[][] transpose = new int[column][row];
+        for(int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                transpose[j][i] = matrix[i][j];
             }
         }
-        return product;
+        // Display transposed matrix
+        display(transpose);
     }
-    public static void displayProduct(int[][] product) {
-        System.out.println("Product of two matrices is: ");
-        for(int[] row : product) {
+    public static void display(int[][] matrix) {
+        System.out.println("The matrix is: ");
+        for(int[] row : matrix) {
             for (int column : row) {
                 System.out.print(column + "    ");
             }
